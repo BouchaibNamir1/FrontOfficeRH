@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Demande d'attestation";
+}
+
+<h2 class="text-success">📄 Demander une attestation</h2>
+
+<form asp-action="DemandeAttestation" method="post" class="mt-3">
+    <div class="form-group">
+        <label>Type d'attestation</label>
+        <select name="typeAttestation" class="form-control" required>
+            <option value="">-- Choisir --</option>
+            <option value="Travail">Attestation de travail</option>
+            <option value="Salaire">Attestation de salaire</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-sm btn-success mt-3">📤 Demander</button>
+</form>

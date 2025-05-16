@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Espace Employé";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>👨‍💼 Bienvenue dans votre espace employé</h3>
+        </div>
+        <div class="card-body bg-light text-center">
+            <a class="btn btn-outline-primary btn-lg m-2" asp-controller="Employees" asp-action="DemandeConge">📆 Demande de congé</a>
+            <a class="btn btn-outline-success btn-lg m-2" asp-controller="Employees" asp-action="DemandeAttestation">📄 Demander une attestation</a>
+            <a class="btn btn-outline-info btn-lg m-2" asp-controller="Employees" asp-action="HistoriqueConges">📚 Historique des congés</a>
+            <a class="btn btn-outline-dark btn-lg m-2" asp-controller="Employees" asp-action="HistoriqueAttestations">🗂️ Historique des attestations</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FrontOfficeRH1.Models.DemandeAttestation>
+@{
+    ViewBag.Title = "Mes attestations";
+}
+
+<h2 class="text-dark">🗂️ Mes demandes d’attestation</h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Statut</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var demande in Model)
+        {
+            <tr>
+                <td>@demande.TypeAttestation</td>
+                <td>@demande.Statut</td>
+                <td>
+                    @if (demande.Statut == "EnAttente")
+                    {
+                        <a asp-action="AnnulerAttestation" asp-route-id="@demande.Id" class="btn btn-sm btn-danger">🗑️ Annuler</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

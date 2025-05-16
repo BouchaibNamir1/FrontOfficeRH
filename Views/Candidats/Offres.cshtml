@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FrontOfficeRH1.Models.OffreEmploi>
+
+@{
+    ViewData["Title"] = "Liste des offres";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white">
+            <h3><i class="fa fa-file-alt"></i> Liste des offres</h3>
+        </div>
+        <div class="card-body bg-light">
+            <table class="table table-bordered table-hover">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var offre in Model)
+                        {
+                            <tr>
+                                <td>@offre.Titre</td>
+                                <td>@offre.Description</td>
+                                <td>
+                                    <form asp-action="Postuler" asp-controller="Candidats" asp-route-id="@offre.Id" method="post">
+                                        <button type="submit" class="btn btn-success btn-sm">Postuler</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center">Aucune offre disponible.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

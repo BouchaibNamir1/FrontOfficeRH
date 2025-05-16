@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FrontOfficeRH1.Models.DemandeConge>
+@{
+    ViewBag.Title = "Historique des congés";
+}
+
+<h2 class="text-info">📚 Mes demandes de congés</h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Statut</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var demande in Model)
+        {
+            <tr>
+                <td>@demande.DateDebut.ToShortDateString()</td>
+                <td>@demande.DateFin.ToShortDateString()</td>
+                <td>@demande.Statut</td>
+                <td>
+                    @if (demande.Statut == "EnAttente")
+                    {
+                        <a asp-action="AnnulerConge" asp-route-id="@demande.Id" class="btn btn-sm btn-danger">🗑️ Annuler</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
